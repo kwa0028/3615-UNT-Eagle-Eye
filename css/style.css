@@ -29,7 +29,7 @@ img {
   max-width: 100%;
 }
 
-/* Navbar*/
+/* --------------- Navbar --------------- */
 
 .logo {
   display: flex;
@@ -75,7 +75,7 @@ img {
   margin-left: 10px;
 }
 
-/* Hero */
+/* --------------- Hero --------------- */
 
 .hero {
   margin-bottom: 0px;
@@ -150,7 +150,7 @@ img {
   cursor: pointer;
 }
 
-/* Video */
+/* --------------- Video --------------- */
 
 .video {
   padding: 10px 0 40px;
@@ -172,7 +172,7 @@ img {
   margin-right: 10px;
 }
 
-/* FAQ */
+/* --------------- FAQ --------------- */
 
 .faq {
   padding: 40px 0;
@@ -235,7 +235,7 @@ img {
   color: #fff;
 }
 
-/* Footer */
+/* --------------- Footer --------------- */
 
 .footer {
   padding: 40px 0;
@@ -271,8 +271,172 @@ img {
   margin: 20px 30px 30px 0;
 }
 
+/* --------------- Login --------------- */
 
-/* Utility Classes */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/login.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login .wrapper {
+  width: 420px;
+  background: #ffffffec;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.login .wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.login .wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(33, 33, 33, 0.315);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: #333;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #333;
+}
+
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+  accent-color: var(--dark-primary);
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: var(--primary-color);
+  transition: 0.2s;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+  color: var(--dark-primary);
+}
+
+.wrapper .btn-login {
+  width: 100%;
+  height: 45px;
+  background: var(--dark-primary);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.wrapper .btn-login:hover {
+  width: 100%;
+  height: 45px;
+  background: #333333;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.wrapper .disclaimer {
+  font-size: 12px;
+  margin: 10px 20px 0;
+  text-align: center;
+}
+
+.wrapper .register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+  color: var(--dark-primary);
+}
+
+/* --------------- Sign Up --------------- */
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/signup.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+.signup .wrapper {
+  width: 420px;
+  background: #ffffffec;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.signup .wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.signup .wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+
+
+/* --------------- Utility Classes --------------- */
 
 .container {
   max-width: 100%px;
@@ -286,7 +450,7 @@ img {
   padding: 0 15px;
 }
 
-/* Buttons */
+/* --------------- Buttons --------------- */
 
 .btn-light {
   display: inline-block;
@@ -330,7 +494,7 @@ img {
   width: 100%;
 }
 
-/* Text Classes */
+/* --------------- Text Classes --------------- */
 
 .text-xxl {
   font-size: 3rem;
@@ -371,7 +535,7 @@ img {
   text-align: center;
 }
 
-/* Backgroud */
+/* --------------- Backgroud --------------- */
 .bg-primary {
   background: #fff;
   color: #000;
@@ -392,7 +556,7 @@ img {
   color: #fff;
 }
 
-/* Hamburger Button */
+/* --------------- Hamburger Button --------------- */
 .hamburger-button {
   display: none;
   background: none;
@@ -409,7 +573,7 @@ img {
   margin: 6px 0;
 }
 
-/* Mobile Menu */
+/* --------------- Mobile Menu --------------- */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -440,7 +604,7 @@ img {
   transition: 0.3s;
 }
 
-/* Media Queries */
+/* --------------- Media Queries --------------- */
 @media (max-width: 960px) {
   .text-xxl {
     font-size: 2.5rem;
@@ -462,7 +626,7 @@ img {
     text-align: center;
   }
 
-  /* Text */
+  /* --------------- Text --------------- */
   .text-xl {
     font-size: 1.9rem;
   }
