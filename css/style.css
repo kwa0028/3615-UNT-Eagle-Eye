@@ -467,6 +467,83 @@ img {
   padding-bottom: 20px;
 }
 
+/* --------------- Small Navbar --------------- */
+
+.navbar-gn {
+  background: #276436;
+  padding: 20px;
+}
+
+.navbar-gn .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-gn .main-menu ul {
+  display: flex;
+}
+
+.navbar-gn ul li a {
+  padding: 10px 20px;
+  display: block;
+  font-weight: 600;
+  transition: 0.5;
+}
+
+.navbar-gn ul li a:hover {
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.navbar-gn ul li a i {
+  margin-right: 10px;
+}
+
+.navbar-gn ul li:last-child a {
+  margin-left: 10px;
+}
+
+.sm-hero-search {
+  width: 100%;
+  max-width: 500px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+}
+
+.sm-hero-search input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #000000;
+}
+
+.sm-hero-search button i {
+  width: 100%;
+  color: #fff;
+  size:90px;
+}
+
+.sm-hero-search i {
+  color: #000;
+  font-size: 1.4rem;
+}
+
+.sm-hero-search button {
+  border: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+
 /* --------------- Utility Classes --------------- */
 
 .container {
