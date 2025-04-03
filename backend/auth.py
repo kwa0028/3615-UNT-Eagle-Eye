@@ -31,7 +31,7 @@ def login():
     return render_template("login.html") # goes to the login.html file
 
 @auth.route('/logout', methods=["GET"])
-def login():
+def logout():
     return "<p>Logout</p>"
 
 @auth.route('/SignUp', methods=["GET"])
