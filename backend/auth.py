@@ -54,7 +54,7 @@ def apiSignUp():
     cur = conn.cursor()
 
     try:
-        cur.execute("INSERT INTO students (username, passwords) VALUES (%s, %s)", (username, hashedPassword))
+        cur.execute("INSERT INTO students (username, password) VALUES (%s, %s)", (username, hashedPassword))
         conn.commit()
     except psycopg2.Error as e:
         conn.rollback()
@@ -75,7 +75,6 @@ def apiLogin():
     if not username or not password:
         return jsonify({"error": "Your username and password are required"}), 400
     
-    hashedPassword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
     conn = get_db_connect()
     cur = conn.cursor()
