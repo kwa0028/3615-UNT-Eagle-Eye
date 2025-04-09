@@ -753,3 +753,86 @@ img {
     font-size: 2rem;
   }
 }
+/*-----------Professor Results------*/
+.sub-header {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.professor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+.prof-info {
+  flex: 1;
+  padding: 0 20px;
+}
+.rating-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.rating-circle span {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+.orange {
+  background: #f39c12;
+}
+
+.green {
+  background: #27ae60;
+}
+
+.prof-info {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.prof-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.review-btn {
+  background: #006b3f;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.star-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
