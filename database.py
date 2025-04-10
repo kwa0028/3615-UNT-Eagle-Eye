@@ -19,6 +19,7 @@ cur.execute("""CREATE TABLE IF NOT EXISTS students(
 #Sign Up
 def signUp():
     username = input("Enter username:")
+    #check if username is already listed
     password = input("Enter password:")
     #nested if statments to verify requirments)
     if(len(password)<10):
@@ -30,13 +31,31 @@ def signUp():
             or ';'in password or ','in password or '<'in password or '>'in password or '|'in password or "'"in password):
             cur.execute("""INSERT INTO public.students (username, passwrd) 
                 VALUES (%s, %s)""", (username, password))
+            conn.commit()
         else:
             print("Password must contian at least 1 special character")
             signUp()
 
+def logIn():
+    print("Log In:")
+    cur.execute("SELECT * FROM public.students;")
+    students = cur.fetchall()
+    logGuess=input("Enter username:")
+    passGuess=input("Enter password:")
+    for index, student in enumerate(students):
+        print(f"Index: {index}, Username: {student[0]}, Password: {student[1]}")  # student[0] is username, student[1] is password
+        if(student[0]==logGuess):
+            if(student[1]==passGuess):
+                print("Signed In")
+                break
+            print("Wrong Password")
+            break
+        print("No such account, please sign up")
+
+    
 
 signUp()
-
+logIn()
 
 #Update Table
 conn.commit()
@@ -48,7 +67,3 @@ print(cur.fetchall())
 #clean up
 cur.close()
 conn.close()
-
-#note
-#Adds student objects chronologically, 
-#unless usernames match in which case it's alphabetical
