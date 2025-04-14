@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Review - UNT Eagle Eye</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header/Nav Bar -->
+  <nav class="green-navbar">
+    <div class="nav-left">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+    </div>
+    <div class="nav-center">
+      <form class="nav-search" action="#" method="get">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+    <div class="nav-right">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Review Form -->
+  <section class="review">
+    <div class="wrapper">
+      <form action="/submit-review" method="POST">
+        <h1 class="centered-title">Submit a Review</h1>
+
+        <div class="input-box">
+          <input type="text" name="professor_name" placeholder="Professor Name" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="course_title" placeholder="Course Title" required>
+        </div>
+        <div class="input-box">
+          <input type="number" name="rating" min="1" max="10" placeholder="Rating (1-10)" required>
+        </div>
+        <div class="input-box">
+          <textarea name="review_text" placeholder="Your review..." rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-login">Submit Review</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
