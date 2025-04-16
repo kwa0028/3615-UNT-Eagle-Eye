@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/charts.min.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -21,13 +22,15 @@
                     <img src="images/HomeButton.png" alt="Home Button">
                 </a>
             </div>
-            <form action="https://www.google.com/search" method="get" class="sm-hero-search">
-                <i class="fas fa-search"></i>
-                <input type="search" placeholder="College of Engineering" name="q">
-                <button type="submit"><i class="fas fa-arrow-right"></i></button>
-            </form>
             <div class="main-menu">
                 <ul>
+                    <li>
+                        <form action="https://www.google.com/search" method="get" class="sm-hero-search">
+                            <i class="fas fa-search"></i>
+                            <input type="search" placeholder="College of Engineering" name="q">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </li>
                     <li>
                         <a class="btn btn-light" href="login.html">
                             <i class="fas fa-user"></i> Login
@@ -62,18 +65,106 @@
             </div>
         </div>
     </nav>
-    <!-- About Us -->
-    <section class="about">
-        <div class="wrapper">
-            <h1>About UNT Eagle Eye</h1>
-            <p>
-                The UNT Eagle Eye web application is an independent, student-driven 
-                platform designed to allow University of North Texas (UNT) students 
-                to rate and review professor performance beyond the standardized SPOT 
-                (Student Perception of Teaching) evaluation. This system provides students 
-                with an unrestricted and anonymous space to share their experiences, helping 
-                others make informed decisions about their courses and instructors.
-            </p>
+    <!-- Viewing Bar -->
+    <section class="viewing">
+        <p>Currently Viewing "Jane Doe".</p>
+    </section>
+    <!-- Professor Info -->
+    <section class="professor">
+        <div class="cover">
+            <div class="cover-content">
+                <div class="name-card">
+                    <h2>Professor</h2>
+                    <h1>Jane Doe</h1>
+                    <p>College of Engineering</p>
+                    <p class="lite">Computer Science</p>
+                    <div class="big-line"></div>
+                    <div class="rating-btm">
+                        <div class="out-of-ten">
+                            <h1>4.3</h1>
+                            <p>/ 10</p>
+                        </div>
+                        <div class="btm-message">
+                            <p>Quality Based on Student Ratings</p>
+                            <p class="lite">34 ratings submitted</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ratings">
+                    <p>How your peers rated...</p>
+                    <div id="my-chart">
+
+                        <table class="charts-css bar show-labels data-spacing-5">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"> 10 </th>
+                                    <td style="--size: 0; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 9 </th>
+                                    <td style="--size: 0.2; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 8 </th>
+                                    <td style="--size: 0.2; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 7 </th>
+                                    <td style="--size: 0.3; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 6 </th>
+                                    <td style="--size: 0.4; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 5 </th>
+                                    <td style="--size: 0.7; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 4 </th>
+                                    <td style="--size: 1; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 3 </th>
+                                    <td style="--size: 0.6; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 2 </th>
+                                    <td style="--size: 0.2; --color: #00EB6E;"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> 1 </th>
+                                    <td style="--size: 0; --color: #00EB6E;"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="courses">
+                <h2>Course History</h2>
+                <div class="sm-line"></div>
+                <div class="box">
+                    <div class="course-num">
+                        <ul>
+                            <li>CSCE 1045</li>
+                            <li>CSCE 2100</li>
+                            <li>CSCE 2110</li>
+                            <li>CSCE 3600</li>
+                            <li>CSCE 4210</li>
+                        </ul>
+                    </div>
+                    <div class="course-name">
+                        <ul>
+                            <li>Computer Programming II</li>
+                            <li>Foundations of Computing</li>
+                            <li>Foundations of Data Structures</li>
+                            <li>Principles of Systems Programming</li>
+                            <li>Game Programming I</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Footer -->
