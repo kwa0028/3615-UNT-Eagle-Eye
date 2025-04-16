@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNT Eagle Eye</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigate -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/UNTlogo.png" alt="UNT logo">
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a class="btn btn-light" href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                    <li><a class="btn btn-dark" href="signup.html"><i class="fas fa-pen"></i> Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a class="btn btn-light" href="#"><i class="fas fa-user"></i> Login</a></li>
+                <li><a class="btn btn-dark" href="#"><i class="fas fa-pen"></i> Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login -->
+    <section class="login">
+        <div class="wrapper">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="email" id="username" placeholder="Student Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember Me</label>
+                    <a href="#"> Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Login</button>
+
+                <div class="disclaimer">
+                    <p>UNT Eagle Eye is designed for and targeted to current or previous 
+                        students attending the University of North Texas and is governed  
+                        by and operated in accordance with campus policy.</p>
+                </div>
+
+                <div class="register-link">
+                    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-primary">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html">
+                        <img src="images/UNTlogo.png" alt="logo">
+                    </a>
+                    <div class="card">
+                        <h4>Go Mean Green</h4>
+                        <p class="text-sm">Check out the UNT home page for more student resources like this.</p>
+                        <a href="#" class="btn btn-dark btn-semi" style="color:white;">UNT</a>
+                    </div>
+                    <a href="https://www.instagram.com/unt/?hl=en"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/northtexas/"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div>
+                    <h4>Group 10</h4>
+                    <ul>
+                        <li><a href="#">Group Members</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://news.unt.edu/">UNT News</a></li>
+                        <li><a href="https://calendar.unt.edu/">UNT Calender</a></li>
+                        <li><a href="https://experience.arcgis.com/experience/5b6f7d38a75b4f6e84c81eae31216267/?draft=true">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Main: 940-565-2000</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Connect to Flask login API -->
+    <script>
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        try {
+            const res = await fetch("/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                localStorage.setItem("token", data.token);
+                alert("Login successful!");
+                window.location.href = "/";
+            } else {
+                alert("Login failed: " + (data.error || "Unknown error"));
+            }
+        } catch (err) {
+            alert("Something went wrong. Please try again.");
+            console.error(err);
+        }
+    });
+    </script>
+</body>
+</html>
