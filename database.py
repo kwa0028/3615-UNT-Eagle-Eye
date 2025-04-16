@@ -16,6 +16,25 @@ cur.execute("""CREATE TABLE IF NOT EXISTS students(
             )
             """)
 
+cur.execute("""CREATE TABLE IF NOT EXISTS teachers(
+            name VARCHAR(30),
+            class VARCHAR(30),
+            college VARCHAR(30),
+            average DOUBLE,
+            zero INTEGER,
+            one INTEGER,
+            two INTEGER,
+            three INTEGER,
+            four INTEGER,
+            five INTEGER,
+            six INTEGER,
+            seven INTEGER,
+            eight INTEGER,
+            nine INTEGER,
+            ten INTEGER
+            )
+            """)
+
 #Sign Up
 def signUp():
     username = input("Enter username:")
