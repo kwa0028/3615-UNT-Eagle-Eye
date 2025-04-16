@@ -471,7 +471,7 @@ img {
 
 .navbar-gn {
   background: #276436;
-  padding: 20px;
+  padding: 10px;
 }
 
 .navbar-gn .container {
@@ -484,8 +484,14 @@ img {
   display: flex;
 }
 
+.navbar-gn .home-btn {
+  width: 52px;
+  height: 52px;
+}
+
 .navbar-gn ul li a {
   padding: 10px 20px;
+  margin-top: 4px;
   display: block;
   font-weight: 600;
   transition: 0.5;
@@ -504,14 +510,18 @@ img {
   margin-left: 10px;
 }
 
+.navbar-gn ul li:first-child {
+  margin-right: 15px;
+}
+
 .sm-hero-search {
-  width: 100%;
-  max-width: 500px;
+  width: 500px;
   background: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   border-radius: 60px;
   padding: 10px 20px;
+  height: 52px;
 }
 
 .sm-hero-search input {
@@ -542,6 +552,157 @@ img {
   height: 40px;
   background: var(--primary-color);
   cursor: pointer;
+}
+
+/* --------------- Viewing Bar --------------- */
+
+.viewing {
+  background: #03853e;
+  padding: 10px;
+  text-align: center;
+}
+
+.viewing p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* --------------- Professor --------------- */
+
+.professor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/professor.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.professor .cover {
+  width: 900px;
+  background: #ffffff;
+  color: #000;
+  min-height: 100vh;
+  padding: 30px 40px;
+}
+
+.cover-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cover-content .name-card {
+  background-color: #fff;
+  flex: 1 1 calc(33.333% - 20px);
+  padding: 10px;
+}
+
+.name-card h2 {
+  font-weight: 400;
+  font-size: 32px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.name-card h1 {
+  font-weight: 700;
+  font-size: 48px;
+  padding-bottom: 10px;
+}
+
+.name-card .lite {
+  color: #6D6D6D;
+}
+
+.name-card .rating-btm {
+  display: flex;
+  padding-top: 15px;
+}
+
+.name-card .btm-message {
+  display: block;
+  text-align: center;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.name-card .out-of-ten {
+  display: flex;
+}
+
+.out-of-ten p {
+  padding-top: 15px;
+  padding-left: 5px;
+  color: #6D6D6D;
+}
+
+.name-card p {
+  font-size: 16px;
+}
+
+.name-card .big-line {
+  width: 90%;
+  height: 2px;
+  background: #03853E;
+  margin: 10px 2px;
+  margin-top: 30px;
+}
+
+.cover-content .ratings {
+  background-color: #F7F7F7;
+  flex: 1 1 calc(33.333% - 20px);
+  padding: 10px;
+  height: 45vh;
+}
+
+.ratings p {
+  padding-bottom: 10px;
+}
+
+#my-chart {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.courses {
+  background-color: #00853E;
+  padding: 20px;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+.courses h2 {
+  color: #fff;
+}
+
+.courses .sm-line {
+  width: 120px;
+  height: 2px;
+  background: #fff;
+  margin: 6px 2px;
+}
+
+.courses .box {
+  display: flex;
+}
+
+.courses .course-num {
+  padding-right: 40px;
+}
+
+.courses .course-num ul li {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.courses .course-name ul li {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.1rem;
 }
 
 /* --------------- Utility Classes --------------- */
@@ -752,87 +913,4 @@ img {
   .text-xxl {
     font-size: 2rem;
   }
-}
-/*-----------Professor Results------*/
-.sub-header {
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  font-weight: 600;
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-.professor-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-}
-.prof-info {
-  flex: 1;
-  padding: 0 20px;
-}
-.rating-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.rating-circle span {
-  font-size: 10px;
-  font-weight: normal;
-}
-
-.red {
-  background: #e74c3c;
-}
-
-.orange {
-  background: #f39c12;
-}
-
-.green {
-  background: #27ae60;
-}
-
-.prof-info {
-  flex: 1;
-  padding: 0 20px;
-}
-
-.prof-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.review-btn {
-  background: #006b3f;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-}
-
-.star-icon {
-  font-size: 20px;
-  cursor: pointer;
 }
