@@ -21,7 +21,6 @@ cur.execute("""CREATE TABLE IF NOT EXISTS teachers(
             class VARCHAR(30),
             college VARCHAR(30),
             average DOUBLE,
-            zero INTEGER,
             one INTEGER,
             two INTEGER,
             three INTEGER,
@@ -71,7 +70,39 @@ def logIn():
             break
         print("No such account, please sign up")
 
+
+
+
+
+
+
+
+def getAverage(): #returns average score for a particular teacher
+    #name = user input (change to parameter)
+    cur.execute("SELECT * FROM public.teachers;") #WHERE name = %s;", (name)
+    teacher=cur.fetchall()
+
+    for col in teacher:
+        print(f"name: {col[0]}, One: {col[5]}, Two: {col[6]}, Three: {col[7]}") #Just for Testing
+        scoreOne = col[5]
+        scoreTwo = col[6]
+        scoreThree = col[7]
+        scoreFour = col[8]
+        scoreFive = col[9]
+        scoreSix = col[10]
+        scoreSeven = col[11]
+        scoreEight = col[12]
+        scoreNine = col[13]
+        scoreTen = col[14]
+        reviewCount = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen
+        #Need to add something to make sure reviewCount!=0 (Probably an If statment)
+        avg = (scoreOne * 1 + scoreTwo * 2 + scoreThree * 3 + scoreFour * 4 + scoreFive * 5 + 
+               scoreSix * 6 + scoreSeven * 7 + scoreEight * 8 + scoreNine * 9 + scoreTen * 10) / reviewCount
+        col[3]=avg
+        print(f"{col[3]}")
     
+
+
 
 signUp()
 logIn()
@@ -86,3 +117,12 @@ print(cur.fetchall())
 #clean up
 cur.close()
 conn.close()
+
+
+
+#To Do
+# Teacher File List
+# Review Teacher - Allow for updating the number of reviews and such
+# Add difficulty rating
+# connect to Javascript
+# Clean Up Code
