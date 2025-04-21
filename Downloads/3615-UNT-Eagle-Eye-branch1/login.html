@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNT Eagle Eye</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -17,15 +17,15 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/UNTlogo.png" alt="UNT logo">
+                    <img src="{{ url_for('static', filename='images/UNTlogo.png') }}" alt="UNT logo">
                 </a>
             </div>
             <div class="main-menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a class="btn btn-light" href="login.html"><i class="fas fa-user"></i> Login</a></li>
-                    <li><a class="btn btn-dark" href="signup.html"><i class="fas fa-pen"></i> Sign Up</a></li>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('views.about') }}">About Us</a></li>
+                    <li><a class="btn btn-light" href="{{ url_for('auth.login') }}"><i class="fas fa-user"></i> Login</a></li>
+                    <li><a class="btn btn-dark" href="{{ url_for('auth.signUp') }}"><i class="fas fa-pen"></i> Sign Up</a></li>
                 </ul>
             </div>
         </div>
@@ -37,8 +37,8 @@
         </button>
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                <li><a href="{{ url_for('views.about') }}">About Us</a></li>
                 <li><a class="btn btn-light" href="#"><i class="fas fa-user"></i> Login</a></li>
                 <li><a class="btn btn-dark" href="#"><i class="fas fa-pen"></i> Sign Up</a></li>
             </ul>
@@ -85,7 +85,7 @@
             <div class="footer-grid">
                 <div>
                     <a href="index.html">
-                        <img src="images/UNTlogo.png" alt="logo">
+                        <img src="{{ url_for('static', filename='images/UNTlogo.png') }}" alt="UNT logo">
                     </a>
                     <div class="card">
                         <h4>Go Mean Green</h4>
@@ -100,7 +100,7 @@
                     <ul>
                         <li><a href="#">Group Members</a></li>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="{{ url_for('views.about') }}">About Us</a></li>
                     </ul>
                 </div>
                 <div>

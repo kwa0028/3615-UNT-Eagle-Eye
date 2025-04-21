@@ -16,7 +16,7 @@ CORS(auth)
 #Database connection
 dbParameters = {
     "host": "localhost",
-    "dbname": "postgres",
+    "dbname": "eagleeye_db",
     "user": "postgres",
     "password": "eagleeye", #Store this
     "port": 5432
@@ -54,7 +54,7 @@ def apiSignUp():
     cur = conn.cursor()
 
     try:
-        cur.execute("INSERT INTO students (username, passwords) VALUES (%s, %s)", (username, hashedPassword))
+        cur.execute("INSERT INTO students (username, password) VALUES (%s, %s)", (username, hashedPassword.decode('utf-8')))
         conn.commit()
     except psycopg2.Error as e:
         conn.rollback()
