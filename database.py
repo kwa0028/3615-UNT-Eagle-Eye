@@ -156,6 +156,26 @@ def getAverage(name): #returns average score for a particular teacher
     conn.commit()
     #return avg
     
+def reviewCount(name):
+    cur.execute("SELECT * FROM public.teachers WHERE name = %s;", (name,))
+    teacher=cur.fetchall()
+    for col in teacher:
+        print(f"name: {col[0]}, One: {col[4]}, Two: {col[5]}, Three: {col[6]}") #Just for Testing
+        scoreOne = col[4]
+        scoreTwo = col[5]
+        scoreThree = col[6]
+        scoreFour = col[7]
+        scoreFive = col[8]
+        scoreSix = col[9]
+        scoreSeven = col[10]
+        scoreEight = col[11]
+        scoreNine = col[12]
+        scoreTen = col[13]
+        reviewCount = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen
+    return reviewCount
+
+
+
 
 name="Mr.Roger"
 className="ComSci"
@@ -191,7 +211,5 @@ conn.close()
 
 #To Do
 # Teacher File List
-# Review Teacher - Allow for updating the number of reviews and such
-# Add difficulty rating
 # connect to Javascript
 # Clean Up Code
