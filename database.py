@@ -37,7 +37,7 @@ cur.execute("""CREATE TABLE IF NOT EXISTS teachers(
             """)
 
 
-#Sign Up
+#Students
 def signUp():
     username = input("Enter username:")
     #check if username is already listed
@@ -74,9 +74,9 @@ def logIn():
         print("No such account, please sign up")
 
 
-
-def giveReview():
-    
+#Teachers
+def giveReview(name):    
+    #name="Mr.Roger"
     cur.execute("SELECT * FROM public.teachers;") #WHERE name = %s;", (name)
     teacher=cur.fetchall()
     
@@ -183,7 +183,10 @@ cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, 
 
 # signUp()
 # logIn()
-giveReview()
+
+
+
+#giveReview("Mr.Roger")
 
 
 #Update Table
