@@ -75,65 +75,52 @@ def logIn():
 
 
 #Teachers
-def giveReview(name):    
-    #name="Mr.Roger"
-    cur.execute("SELECT * FROM public.teachers;") #WHERE name = %s;", (name)
+def giveReview(name, score):    #requires teacher with this.name exists
+    cur.execute("SELECT * FROM public.teachers WHERE name = %s;", (name,))
     teacher=cur.fetchall()
     
     print(f"Fetched teachers: {teacher}")
     print(f"Number of teacher records: {len(teacher)}")
     
-    # int number will be grade, switch case match it to a review score and update that number
-    score = int(input("Enter review score:"))
     scoreHolder=0
     #using if else chain since python lacks switch case
     if score == 10:
-        print("10")
         scoreHolder=teacher[0][13]
         scoreHolder+=1
         cur.execute("UPDATE public.teachers SET ten = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 9:
-        print("9")
         scoreHolder=teacher[0][12]
         scoreHolder+=1
         cur.execute("UPDATE public.teachers SET nine = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 8:
-        print("8")
         scoreHolder = teacher[0][11]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET eight = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 7:
-        print("7")
         scoreHolder = teacher[0][10]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET seven = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 6:
-        print("6")
         scoreHolder = teacher[0][9]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET six = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 5:
-        print("5")
         scoreHolder = teacher[0][8]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET five = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 4:
-        print("4")
         scoreHolder = teacher[0][7]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET four = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 3:
-        print("3")
         scoreHolder = teacher[0][6]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET three = %s WHERE name = %s;", (scoreHolder, name))
     elif score == 2:
-        print("2")
         scoreHolder = teacher[0][5]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET two = %s WHERE name = %s;", (scoreHolder, name))
-    elif score==1:  
-        print("1")
+    elif score==1: 
         scoreHolder = teacher[0][4]
         scoreHolder += 1
         cur.execute("UPDATE public.teachers SET one = %s WHERE name = %s;", (scoreHolder, name))
@@ -142,9 +129,9 @@ def giveReview(name):
     conn.commit()
 
 
-def getAverage(): #returns average score for a particular teacher
+def getAverage(name): #returns average score for a particular teacher
     #name = user input (change to parameter)
-    cur.execute("SELECT * FROM public.teachers;") #WHERE name = %s;", (name)
+    cur.execute("SELECT * FROM public.teachers WHERE name = %s;", (name,))
     teacher=cur.fetchall()
 
     for col in teacher:
@@ -167,6 +154,7 @@ def getAverage(): #returns average score for a particular teacher
             avg=0
         cur.execute("UPDATE public.teachers SET average = %s WHERE name = %s;", (avg, name))
     conn.commit()
+    #return avg
     
 
 name="Mr.Roger"
@@ -179,15 +167,13 @@ cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, 
                   (name, className, coll, avgHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder))
 
 
-
 # signUp()
 # logIn()
 
 
 
-giveReview("Mr.Roger")
-print("Pause, hello worldo")
-getAverage()
+giveReview("Mr.Roger",8)
+getAverage("Mr.Roger")
 
 #Update Table
 conn.commit()
