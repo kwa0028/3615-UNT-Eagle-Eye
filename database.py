@@ -38,10 +38,8 @@ cur.execute("""CREATE TABLE IF NOT EXISTS teachers(
 
 
 #Students
-def signUp():
-    username = input("Enter username:")
-    #check if username is already listed
-    password = input("Enter password:")
+def signUp(username, password):
+    #check if username is already listed?
     #nested if statments to verify requirments)
     if(len(password)<10):
         print("Password must be at least 10 characters, and contain at least 1 special character. Please try again.")
@@ -57,12 +55,10 @@ def signUp():
             print("Password must contian at least 1 special character")
             signUp()
 
-def logIn():
+def logIn(logGuess,passGuess):
     print("Log In:")
     cur.execute("SELECT * FROM public.students;")
     students = cur.fetchall()
-    logGuess=input("Enter username:")
-    passGuess=input("Enter password:")
     for index, student in enumerate(students):
         print(f"Index: {index}, Username: {student[0]}, Password: {student[1]}")  # student[0] is username, student[1] is password
         if(student[0]==logGuess):
@@ -135,7 +131,6 @@ def getAverage(name): #returns average score for a particular teacher
     teacher=cur.fetchall()
 
     for col in teacher:
-        print(f"name: {col[0]}, One: {col[4]}, Two: {col[5]}, Three: {col[6]}") #Just for Testing
         scoreOne = col[4]
         scoreTwo = col[5]
         scoreThree = col[6]
@@ -160,7 +155,6 @@ def reviewCount(name):
     cur.execute("SELECT * FROM public.teachers WHERE name = %s;", (name,))
     teacher=cur.fetchall()
     for col in teacher:
-        print(f"name: {col[0]}, One: {col[4]}, Two: {col[5]}, Three: {col[6]}") #Just for Testing
         scoreOne = col[4]
         scoreTwo = col[5]
         scoreThree = col[6]
@@ -177,9 +171,9 @@ def reviewCount(name):
 
 
 
-name="Mr.Roger"
-className="ComSci"
-coll = "Discovery Park"
+name="Jane Doe"
+className="Computer Science"
+coll = "College of Engineering"
 numHolder=0
 avgHolder=0.0
 cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, two, three, four, five, six, seven, eight, nine, ten) 
@@ -192,8 +186,8 @@ cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, 
 
 
 
-giveReview("Mr.Roger",8)
-getAverage("Mr.Roger")
+giveReview("Jane Doe",8)
+getAverage("Jane Doe")
 
 #Update Table
 conn.commit()
