@@ -148,25 +148,24 @@ def getAverage(): #returns average score for a particular teacher
     teacher=cur.fetchall()
 
     for col in teacher:
-        print(f"name: {col[0]}, One: {col[5]}, Two: {col[6]}, Three: {col[7]}") #Just for Testing
-        scoreOne = col[5]
-        scoreTwo = col[6]
-        scoreThree = col[7]
-        scoreFour = col[8]
-        scoreFive = col[9]
-        scoreSix = col[10]
-        scoreSeven = col[11]
-        scoreEight = col[12]
-        scoreNine = col[13]
-        scoreTen = col[14]
+        print(f"name: {col[0]}, One: {col[4]}, Two: {col[5]}, Three: {col[6]}") #Just for Testing
+        scoreOne = col[4]
+        scoreTwo = col[5]
+        scoreThree = col[6]
+        scoreFour = col[7]
+        scoreFive = col[8]
+        scoreSix = col[9]
+        scoreSeven = col[10]
+        scoreEight = col[11]
+        scoreNine = col[12]
+        scoreTen = col[13]
         reviewCount = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen
         if reviewCount!=0:
             avg = (scoreOne * 1 + scoreTwo * 2 + scoreThree * 3 + scoreFour * 4 + scoreFive * 5 + 
                    scoreSix * 6 + scoreSeven * 7 + scoreEight * 8 + scoreNine * 9 + scoreTen * 10) / reviewCount
         else:
             avg=0
-        col[3]=avg
-        print(f"{col[3]}")
+        cur.execute("UPDATE public.teachers SET average = %s WHERE name = %s;", (avg, name))
     conn.commit()
     
 
@@ -186,8 +185,9 @@ cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, 
 
 
 
-#giveReview("Mr.Roger")
-
+giveReview("Mr.Roger")
+print("Pause, hello worldo")
+getAverage()
 
 #Update Table
 conn.commit()
