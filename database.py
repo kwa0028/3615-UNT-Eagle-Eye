@@ -72,6 +72,65 @@ def logIn():
 
 
 
+def giveReview():
+    cur.execute("SELECT * FROM public.teachers;") #WHERE name = %s;", (name)
+    teacher=cur.fetchall()
+    name ="bob"#holder
+    # int number will be grade, switch case match it to a review score and update that number
+    score = input("Enter password:")
+    scoreHolder
+    #using if else chain since python lacks switch case
+    if score == 10:
+        print("10")
+        scoreHolder=teacher[14]
+        scoreHolder+=1
+        cur.execute("UPDATE public.teachers SET ten = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 9:
+        print("9")
+        scoreHolder=teacher[13]
+        scoreHolder+=1
+        cur.execute("UPDATE public.teachers SET nine = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 8:
+        print("8")
+        scoreHolder = teacher[12]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET eight = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 7:
+        print("7")
+        scoreHolder = teacher[11]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET seven = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 6:
+        print("6")
+        scoreHolder = teacher[10]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET six = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 5:
+        print("5")
+        scoreHolder = teacher[9]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET five = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 4:
+        print("4")
+        scoreHolder = teacher[8]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET four = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 3:
+        print("3")
+        scoreHolder = teacher[7]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET three = %s WHERE id = %s;", (scoreHolder, name))
+    elif score == 2:
+        print("2")
+        scoreHolder = teacher[6]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET two = %s WHERE id = %s;", (scoreHolder, name))
+    else:  
+        print("1")
+        scoreHolder = teacher[5]
+        scoreHolder += 1
+        cur.execute("UPDATE public.teachers SET one = %s WHERE id = %s;", (scoreHolder, name))
+    conn.commit()
 
 
 
@@ -95,11 +154,14 @@ def getAverage(): #returns average score for a particular teacher
         scoreNine = col[13]
         scoreTen = col[14]
         reviewCount = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen
-        #Need to add something to make sure reviewCount!=0 (Probably an If statment)
-        avg = (scoreOne * 1 + scoreTwo * 2 + scoreThree * 3 + scoreFour * 4 + scoreFive * 5 + 
-               scoreSix * 6 + scoreSeven * 7 + scoreEight * 8 + scoreNine * 9 + scoreTen * 10) / reviewCount
+        if reviewCount!=0:
+            avg = (scoreOne * 1 + scoreTwo * 2 + scoreThree * 3 + scoreFour * 4 + scoreFive * 5 + 
+                   scoreSix * 6 + scoreSeven * 7 + scoreEight * 8 + scoreNine * 9 + scoreTen * 10) / reviewCount
+        else:
+            avg=0
         col[3]=avg
         print(f"{col[3]}")
+    conn.commit()
     
 
 
