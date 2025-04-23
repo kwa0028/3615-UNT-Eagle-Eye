@@ -9,6 +9,8 @@ import jwt
 import os
 import datetime
 
+from database import *
+
 auth = Blueprint('auth', __name__)
 SECRET_KEY = "h4?+Do^^XZVsxr^uT*g;6=8C*asvFj(/6Va;i=gZeI$Lvo!&fm;{f'^Zc:ZiuK|" #for JWT tokens
 CORS(auth)
