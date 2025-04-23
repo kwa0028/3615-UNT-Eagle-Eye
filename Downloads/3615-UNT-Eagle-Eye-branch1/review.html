@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNT Eagle Eye</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigate -->
+        <nav class="navbar-gn">
+            <div class="container">
+                <div class="home-btn">
+                    <a href="index.html">
+                        <img src="{{ url_for('static', filename='images/HomeButton.png') }}" alt="Home Button">
+                    </a>
+                </div>
+                <div class="main-menu">
+                    <ul>
+                        <li>
+                            <form action="https://www.google.com/search" method="get" class="sm-hero-search">
+                                <i class="fas fa-search"></i>
+                                <input type="search" placeholder="College of Engineering" name="q">
+                                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                            </form>
+                        </li>
+                        <li>
+                            <a class="btn btn-light" href="{{ url_for('auth.login') }}">
+                                <i class="fas fa-user"></i> Login
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-dark" href="{{ url_for('auth.signUp') }}">
+                                <i class="fas fa-pen"></i> Sign Up
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Hamburger Button -->
+                <button class="hamburger-button">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li>
+                            <a class="btn btn-light" href="#">
+                                <i class="fas fa-user"></i> Login
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-dark" href="#">
+                                <i class="fas fa-pen"></i> Sign Up
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <!-- Review -->
+    <section class="review">
+        <div class="wrapper">
+            <form action="/submit-review" method="POST">
+                <h1 class="centered-title">Submit a Review</h1>
+        
+                <div class="input-box">
+                  <input type="text" name="professor_name" placeholder="Professor Name" required>
+                </div>
+                <div class="input-box">
+                  <input type="text" name="course_title" placeholder="Course Title" required>
+                </div>
+                <div class="input-box">
+                  <input type="number" name="rating" min="1" max="10" placeholder="Rating (1-10)" required>
+                </div>
+                <div class="input-box">
+                  <textarea name="review_text" placeholder="Your review..." rows="4" required></textarea>
+                </div>
+        
+                <button type="submit" class="btn-login">Submit Review</button>
+              </form>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-primary">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html">
+                        <img src="{{ url_for('static', filename='images/UNTlogo.png') }}" alt="UNT logo">
+                    </a>
+                    <div class="card">
+                        <h4>Go Mean Green</h4>
+                        <p class="text-sm">
+                            Check out the UNT home page for more student resources like this.
+                        </p>
+                        <a href="#" class="btn btn-dark btn-semi" style="color:white;">UNT</a>
+                    </div>
+                    <a href="https://www.instagram.com/unt/?hl=en"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/northtexas/"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div>
+                    <h4>Group 10</h4>
+                    <ul>
+                        <li><a href="#">Group Members</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="{{ url_for('views.about') }}">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://news.unt.edu/">UNT News</a></li>
+                        <li><a href="https://calendar.unt.edu/">UNT Calender</a></li>
+                        <li><a href="https://experience.arcgis.com/experience/5b6f7d38a75b4f6e84c81eae31216267/?draft=true">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Main: 940-565-2000</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+</body>
