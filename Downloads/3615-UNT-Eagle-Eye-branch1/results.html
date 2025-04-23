@@ -22,7 +22,7 @@
       </div>
       <div class="main-menu">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ url_for('views.home') }}">Home</a></li>
           <li><a href="{{ url_for('views.about') }}">About Us</a></li>
           <li><a class="btn btn-light" href="{{ url_for('auth.login') }}"><i class="fas fa-user"></i> Login</a></li>
           <li><a class="btn btn-dark" href="{{ url_for('auth.signUp') }}"><i class="fas fa-pen"></i> Sign Up</a></li>
@@ -35,7 +35,7 @@
       </button>
       <div class="mobile-menu">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ url_for('views.home') }}">Home</a></li>
           <li><a href="{{ url_for('views.about') }}">About Us</a></li>
           <li><a class="btn btn-light" href="#"><i class="fas fa-user"></i> Login</a></li>
           <li><a class="btn btn-dark" href="#"><i class="fas fa-pen"></i> Sign Up</a></li>
