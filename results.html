@@ -63,7 +63,7 @@
         </div>
         <div class="prof-actions">
           <div class="star-icon">☆</div>
-          <button class="review-btn">Leave a review</button>
+          <a href="#" class="review-btn" data-name="Jane Doe">Leave a review</a>
         </div>
       </div>
 
@@ -77,7 +77,7 @@
         </div>
         <div class="prof-actions">
           <div class="star-icon">☆</div>
-          <button class="review-btn">Leave a review</button>
+          <a href="#" class="review-btn" data-name="John Doe">Leave a review</a>
         </div>
       </div>
 
@@ -91,7 +91,7 @@
         </div>
         <div class="prof-actions">
           <div class="star-icon">☆</div>
-          <button class="review-btn">Leave a review</button>
+          <a href="#" class="review-btn" data-name="Hadiseh Gooran">Leave a review</a>
         </div>
       </div>
     </div>
@@ -140,5 +140,12 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.review-btn').forEach(button => {
+      const profName = button.dataset.name;
+      const encodedName = encodeURIComponent(profName);
+      button.href = `review.html?prof=${encodedName}`;
+    });
+  </script>
 </body>
 </html>
