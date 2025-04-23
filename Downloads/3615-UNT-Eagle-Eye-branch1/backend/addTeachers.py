@@ -3,7 +3,7 @@ import psycopg2
 def seed_teachers():
     conn = psycopg2.connect(
         host="localhost",
-        dbname="postgres",
+        dbname="eagleeye_db",
         user="postgres",
         password="eagleeye",
         port=5432
