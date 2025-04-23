@@ -40,6 +40,16 @@ cur.execute("""CREATE TABLE IF NOT EXISTS teachers(
 #Students
 def signUp(username, password):
     #check if username is already listed?
+    cur.execute("SELECT * FROM public.students")
+    studentList=cur.fetchall()
+    for col in studentList:
+        nameHolder=col[1]
+        if nameHolder!=username:
+            print("")
+        else:
+            print("Username already exists")
+            #return 1
+
     #nested if statments to verify requirments)
     if(len(password)<10):
         print("Password must be at least 10 characters, and contain at least 1 special character. Please try again.")
