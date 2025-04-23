@@ -78,6 +78,8 @@ def logIn(logGuess,passGuess):
             print("Wrong Password")
             break
         print("No such account, please sign up")
+    
+
 
 
 #Teachers
@@ -180,24 +182,40 @@ def reviewCount(name):
 
 
 
+# IF teachers is empty
+cur.execute("SELECT COUNT(*) FROM public.teachers;")
+count = cur.fetchone()[0]
+if count == 0:
+    name="Jane Doe"
+    className="Computer Science"
+    coll = "College of Engineering"
+    numHolder=0
+    avgHolder=0.0
+    cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, two, three, four, five, six, seven, eight, nine, ten) 
+                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                      (name, className, coll, avgHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder))
+    name="John Doe"
+    className="Computer Science"
+    coll = "College of Engineering"
+    numHolder=0
+    avgHolder=0.0
+    cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, two, three, four, five, six, seven, eight, nine, ten) 
+                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                      (name, className, coll, avgHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder))
+    name="Hadiseh Gooran"
+    className="Computer Science"
+    coll = "College of Engineering"
+    numHolder=0
+    avgHolder=0.0
+    cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, two, three, four, five, six, seven, eight, nine, ten) 
+                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                      (name, className, coll, avgHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder))
 
-name="Jane Doe"
-className="Computer Science"
-coll = "College of Engineering"
-numHolder=0
-avgHolder=0.0
-cur.execute("""INSERT INTO public.teachers (name, class, college, average, one, two, three, four, five, six, seven, eight, nine, ten) 
-               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-                  (name, className, coll, avgHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder, numHolder))
-
-
-# signUp()
-# logIn()
 
 
 
-giveReview("Jane Doe",8)
-getAverage("Jane Doe")
+
+
 
 #Update Table
 conn.commit()
@@ -214,6 +232,5 @@ conn.close()
 
 
 #To Do
-# Teacher File List
 # connect to Javascript
 # Clean Up Code
