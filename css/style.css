@@ -150,6 +150,12 @@ img {
   cursor: pointer;
 }
 
+.hero a {
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 230px;
+}
+
 /* --------------- Video --------------- */
 
 .video {
