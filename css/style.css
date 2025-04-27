@@ -626,7 +626,7 @@ img {
 
 .professor .cover {
   width: 900px;
-  background: #ffffff;
+  background: #ffffffd5;
   color: #000;
   min-height: 100vh;
   padding: 30px 40px;
@@ -638,7 +638,7 @@ img {
 }
 
 .cover-content .name-card {
-  background-color: #fff;
+  background-color: #ffffff00;
   flex: 1 1 calc(33.333% - 20px);
   padding: 10px;
 }
