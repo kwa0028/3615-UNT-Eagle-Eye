@@ -56,7 +56,7 @@
       <div class="professor-card">
         <div class="rating-circle orange">4.3<br/><span>34 ratings</span></div>
         <div class="prof-info">
-          <h3>Jane Doe</h3>
+          <h3><a href="{{ url_for('views.professor') }}">Jane Doe</a></h3>
           <p>Computer Science</p>
           <p>College of Engineering</p>
           <p><strong>7.4</strong> perceived difficulty</p>
@@ -144,7 +144,7 @@
     document.querySelectorAll('.review-btn').forEach(button => {
       const profName = button.dataset.name;
       const encodedName = encodeURIComponent(profName);
-      button.href = `review.html?prof=${encodedName}`;
+      button.href = `/review?prof=${encodedName}`;
     });
   </script>
 </body>
