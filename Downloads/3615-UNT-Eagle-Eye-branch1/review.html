@@ -16,7 +16,7 @@
         <nav class="navbar-gn">
             <div class="container">
                 <div class="home-btn">
-                    <a href="index.html">
+                    <a href="{{ url_for('views.home') }}">
                         <img src="{{ url_for('static', filename='images/HomeButton.png') }}" alt="Home Button">
                     </a>
                 </div>
@@ -66,7 +66,7 @@
     <!-- Review -->
     <section class="review">
         <div class="wrapper">
-            <form action="/submit-review" method="POST">
+            <form action="index.html" method="get">
                 <h1 class="centered-title">Submit a Review</h1>
         
                 <div class="input-box">
@@ -78,8 +78,8 @@
                 <div class="input-box">
                   <input type="number" name="rating" min="1" max="10" placeholder="Rating (1-10)" required>
                 </div>
-                <div class="input-box">
-                  <textarea name="review_text" placeholder="Your review..." rows="4" required></textarea>
+                <div class="textarea">
+                  <textarea name="review_text" placeholder="Your review..." rows="5" required></textarea>
                 </div>
         
                 <button type="submit" class="btn-login">Submit Review</button>
@@ -93,7 +93,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="index.html">
+                    <a href="{{ url_for('views.home') }}">
                         <img src="{{ url_for('static', filename='images/UNTlogo.png') }}" alt="UNT logo">
                     </a>
                     <div class="card">
