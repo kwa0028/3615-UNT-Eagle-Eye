@@ -94,3 +94,24 @@ def apiLogin():
         return jsonify({"token": token})
     else:
         return jsonify({"error": "Wrong credentials"}), 401
+    
+#Submit a review
+@auth.route('/submit_review', methods=["POST"])
+def submitReview():
+    data = request.form
+    professor = data.get("professor_name")
+    course = data.get("course_title")
+    rating = data.get("rating")
+    comment = data.get("review_text")
+
+    conn = get_db_connect()
+    cur = conn.cursor()
+    cur.execute("""
+        INSERT INTO reviews (professor_name, course_title, rating, review_text)
+        VALUES (%s, %s, %s, %s)
+    """, (professor, course, rating, comment))
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return redirect(url_for('views.professor', name=professor))

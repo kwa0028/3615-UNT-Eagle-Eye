@@ -47,7 +47,7 @@
 {% block content %}
 <section class="review">
     <div class="wrapper">
-        <form action="index.html" method="get">
+        <form action="{{ url_for('views.review') }}" method="post">
             <h1 class="centered-title">Submit a Review</h1>
 
             <div class="input-box">

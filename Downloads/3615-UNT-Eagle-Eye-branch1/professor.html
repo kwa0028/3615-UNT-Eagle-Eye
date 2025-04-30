@@ -120,4 +120,22 @@
     </div>
 </section>
 
+<!-- Review Section-->
+<section class="reviews">
+    <div class="wrapper">
+        <h2>Student Reviews</h2>
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="review-card">
+                    <h4>{{ review.course_title }} ({{ review.rating }}/10)</h4>
+                    <p><strong>By:</strong> {{ review.student_email }}</p>
+                    <p>{{ review.review_text }}</p>
+                    <hr>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No reviews yet for this professor.</p>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
