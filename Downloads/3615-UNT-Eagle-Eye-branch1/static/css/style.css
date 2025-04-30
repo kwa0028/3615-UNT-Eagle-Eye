@@ -1048,3 +1048,37 @@ img {
   font-size: 20px;
   cursor: pointer;
 }
+
+/* Reviews */
+.reviews {
+  padding: 2rem;
+  background-color: #fff;
+  border-top: 2px solid #e0e0e0;
+  margin-top: 2rem;
+}
+
+.reviews h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #2e2e2e;
+}
+
+.review-box {
+  background-color: #f9f9f9;
+  padding: 1rem 1.5rem;
+  border-left: 5px solid #007844; /* UNT Green */
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-box p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.review-box .lite {
+  font-size: 0.85rem;
+  color: #777;
+}

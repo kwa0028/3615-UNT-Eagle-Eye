@@ -20,7 +20,9 @@
                     </form>
                 </li>
                 {% if session.get("user") %}
-                    <li><span class="btn btn-light">👋 Welcome, {{ session["user"] }}</span></li>
+                    {% set name_parts = session["user"].split('@')[0].split('.') %}
+                    {% set formatted_name = name_parts | map('capitalize') | join(' ') %}
+                    <li><span class="btn btn-light"> Welcome, {{ formatted_name }}!</span></li>
                     <li><a class="btn btn-dark" href="{{ url_for('auth.logout') }}">Logout</a></li>
                 {% else %}
                     <li><a class="btn btn-light" href="{{ url_for('auth.login') }}"><i class="fas fa-user"></i> Login</a></li>

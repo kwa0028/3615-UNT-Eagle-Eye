@@ -20,24 +20,14 @@
                     </form>
                 </li>
                 {% if session.get("user") %}
-                    <li><span class="btn btn-light">👋 Welcome, {{ session["user"] }}</span></li>
+                    {% set name_parts = session["user"].split('@')[0].split('.') %}
+                    {% set formatted_name = name_parts | map('capitalize') | join(' ') %}
+                    <li><span class="btn btn-light"> Welcome, {{ formatted_name }}!</span></li>
                     <li><a class="btn btn-dark" href="{{ url_for('auth.logout') }}">Logout</a></li>
                 {% else %}
                     <li><a class="btn btn-light" href="{{ url_for('auth.login') }}"><i class="fas fa-user"></i> Login</a></li>
                     <li><a class="btn btn-dark" href="{{ url_for('auth.signUp') }}"><i class="fas fa-pen"></i> Sign Up</a></li>
                 {% endif %}
-            </ul>
-        </div>
-        <!-- Hamburger Button -->
-        <button class="hamburger-button">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-        </button>
-        <div class="mobile-menu">
-            <ul>
-                <li><a class="btn btn-light" href="#">Login</a></li>
-                <li><a class="btn btn-dark" href="#">Sign Up</a></li>
             </ul>
         </div>
     </div>
@@ -77,16 +67,16 @@
                 <div id="my-chart">
                     <table class="charts-css bar show-labels data-spacing-5">
                         <tbody>
-                            <tr><th scope="row">10</th><td style="--size: 0;"></td></tr>
-                            <tr><th scope="row">9</th><td style="--size: 0.2;"></td></tr>
-                            <tr><th scope="row">8</th><td style="--size: 0.2;"></td></tr>
-                            <tr><th scope="row">7</th><td style="--size: 0.3;"></td></tr>
-                            <tr><th scope="row">6</th><td style="--size: 0.4;"></td></tr>
-                            <tr><th scope="row">5</th><td style="--size: 0.7;"></td></tr>
-                            <tr><th scope="row">4</th><td style="--size: 1;"></td></tr>
-                            <tr><th scope="row">3</th><td style="--size: 0.6;"></td></tr>
-                            <tr><th scope="row">2</th><td style="--size: 0.2;"></td></tr>
-                            <tr><th scope="row">1</th><td style="--size: 0;"></td></tr>
+                          <tr><th scope="row">10</th><td style="--size: 0;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">9</th><td style="--size: 0.2;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">8</th><td style="--size: 0.2;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">7</th><td style="--size: 0.3;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">6</th><td style="--size: 0.4;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">5</th><td style="--size: 0.7;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">4</th><td style="--size: 1;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">3</th><td style="--size: 0.6;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">2</th><td style="--size: 0.2;"><span class="data"></span></td></tr>
+                          <tr><th scope="row">1</th><td style="--size: 0;"><span class="data"></span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -120,22 +110,22 @@
     </div>
 </section>
 
-<!-- Review Section-->
+<!-- Review Section -->
 <section class="reviews">
     <div class="wrapper">
         <h2>Student Reviews</h2>
         {% if reviews %}
-            {% for review in reviews %}
-                <div class="review-card">
-                    <h4>{{ review.course_title }} ({{ review.rating }}/10)</h4>
-                    <p><strong>By:</strong> {{ review.student_email }}</p>
-                    <p>{{ review.review_text }}</p>
-                    <hr>
-                </div>
+            {% for course_title, rating, review_text, created_at in reviews %}
+            <div class="review-box">
+                <p><strong>{{ course_title }}</strong> ({{ rating }}/10)</p>
+                <p>{{ review_text }}</p>
+                <p class="lite">Submitted on {{ created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+            </div>
             {% endfor %}
         {% else %}
-            <p>No reviews yet for this professor.</p>
+            <p>No reviews yet.</p>
         {% endif %}
     </div>
 </section>
+
 {% endblock %}
