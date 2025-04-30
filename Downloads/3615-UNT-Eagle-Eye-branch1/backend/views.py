@@ -56,14 +56,28 @@ def review():
 
         conn = get_db_connect()
         cur = conn.cursor()
+
+        
         cur.execute(
             "INSERT INTO reviews (professor_name, course_title, rating, review_text) VALUES (%s, %s, %s, %s)",
             (professor_name, course_title, rating, review_text)
         )
         conn.commit()
+
+        # Gets all the reviews 
+        cur.execute(
+            "SELECT course_title, rating, review_text, created_at FROM reviews WHERE professor_name = %s ORDER BY created_at DESC",
+            (professor_name,)
+        )
+        reviews = cur.fetchall()
+
         cur.close()
         conn.close()
 
-        return render_template("professor.html", name=professor_name, reviews=[(course_title, rating, review_text, "Just now")])
+        return render_template(
+            "professor.html",
+            name=professor_name,
+            reviews=reviews
+        )
 
     return render_template("review.html")
