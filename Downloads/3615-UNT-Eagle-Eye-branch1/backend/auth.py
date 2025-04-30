@@ -1,7 +1,8 @@
-from flask import render_template #import from flask
+from flask import redirect, render_template, url_for #import from flask
 from flask import Blueprint
 from flask import request
 from flask import jsonify
+from flask import session
 from flask_cors import CORS
 import psycopg2
 import bcrypt
@@ -32,13 +33,14 @@ def login():
 
 @auth.route('/logout', methods=["GET"])
 def logout():
-    return "<p>Logout</p>"
+    session.clear()
+    return redirect(url_for('views.home'))
 
 @auth.route('/SignUp', methods=["GET"])
 def signUp():
     return render_template("signup.html") # goes to the signup.html file
 
-#API login route
+#API Sign Up route
 @auth.route('/api/SignUp', methods=["POST"])
 def apiSignUp():
     data = request.json
@@ -87,6 +89,7 @@ def apiLogin():
     conn.close()
 
     if user and bcrypt.checkpw(password.encode('utf-8'), user[0].encode('utf-8')):
+        session["user"] = username
         token = jwt.encode({"username": username, "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, SECRET_KEY, algorithm="HS256")
         return jsonify({"token": token})
     else:
