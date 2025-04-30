@@ -1,4 +1,4 @@
-3615-UNT-Eagle-Eye
+#3615-UNT-Eagle-Eye
 GitHub repository for the UNT Eagle Eye team
 
 The UNT Eagle Eye web application is an independent, student-driven platform designed to allow University of North Texas (UNT) 
