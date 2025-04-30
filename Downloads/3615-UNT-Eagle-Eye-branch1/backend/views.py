@@ -12,6 +12,10 @@ def home():
 def professor():
     return render_template("professor.html")
 
+@views.route('/creators')
+def groupMembers():
+    return render_template("creators.html")
+
 @views.route('/about')
 def about():
     return render_template("about.html")
