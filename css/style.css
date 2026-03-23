@@ -522,7 +522,11 @@ img {
 
 .navbar-gn {
   background: #276436;
+<<<<<<< Updated upstream
   padding: 10px;
+=======
+  padding: 20px;
+>>>>>>> Stashed changes
 }
 
 .navbar-gn .container {
@@ -535,6 +539,7 @@ img {
   display: flex;
 }
 
+<<<<<<< Updated upstream
 .navbar-gn .home-btn {
   width: 52px;
   height: 52px;
@@ -543,6 +548,10 @@ img {
 .navbar-gn ul li a {
   padding: 10px 20px;
   margin-top: 4px;
+=======
+.navbar-gn ul li a {
+  padding: 10px 20px;
+>>>>>>> Stashed changes
   display: block;
   font-weight: 600;
   transition: 0.5;
@@ -561,18 +570,27 @@ img {
   margin-left: 10px;
 }
 
+<<<<<<< Updated upstream
 .navbar-gn ul li:first-child {
   margin-right: 15px;
 }
 
 .sm-hero-search {
   width: 500px;
+=======
+.sm-hero-search {
+  width: 100%;
+  max-width: 500px;
+>>>>>>> Stashed changes
   background: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   border-radius: 60px;
   padding: 10px 20px;
+<<<<<<< Updated upstream
   height: 52px;
+=======
+>>>>>>> Stashed changes
 }
 
 .sm-hero-search input {
@@ -605,6 +623,7 @@ img {
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 /* --------------- Viewing Bar --------------- */
 
 .viewing {
@@ -756,6 +775,8 @@ img {
   font-size: 1.1rem;
 }
 
+=======
+>>>>>>> Stashed changes
 /* --------------- Utility Classes --------------- */
 
 .container {
